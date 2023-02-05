@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <title>My page</title>
+</head>
+
+<style>
+    body {
+        font-family: "Sofia", sans-serif;
+        height: 100vh;
+        background-image: linear-gradient(to top right, red, purple)
+    }
+
+    #top {
+        color: antiquewhite;
+    }
+
+    .heading {
+        font-size: large;
+    }
+
+    .navbar {
+        display: flex;
+        width: 100%;
+        min-width: large;
+        height: 10rem;
+        color: white;
+        font-size: xx-large;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #add_task_form {
+        display: flex;
+    }
+
+    .container {
+        background-color: rgba(255, 255, 255, 0.5);
+        height: 80%;
+        border-radius: 20px
+    }
+
+    .listItem {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    button {
+        transition: all 0.3s;
+        position: relative;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #FFF;
+        height: 50px;
+        text-align: center;
+        width: 250px;
+        cursor: pointer;
+        border: solid 1px #DDD;
+        padding: 10px;
+        margin-top: 10px;
+        border-radius: 20px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .form_input {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.2rem;
+        margin: 0 auto;
+        padding: 1.5rem 2rem;
+        border-radius: 0.2rem;
+        background-color: transparent;
+        border: solid black 1px;
+        width: 90%;
+        display: flex;
+        transition: all 0.3s;
+    }
+
+    .form_input:placeholder-shown+.form__label {
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transform: translateY(-4rem);
+        transform: translateY(-4rem);
+    }
+
+    form {
+        padding: 10px;
+    }
+</style>
+
+<script>
+    function addTask(e) {
+        e.preventDefault()
+        let task = document.getElementById("task_input").value
+        if (task == "") {
+            alert("Please enter a task")
+            return
+        }
+        let taskList = document.getElementById("taskList")
+        let newTask = document.createElement("div")
+        newTask.classList.add("listItem")
+        newTask.innerHTML = `<input type="checkbox" />
+        <li>${task}</li>
+        <button onClick="deleteTask(event)"> Delete</button>`
+        taskList.appendChild(newTask)
+        document.getElementById("task_input").value = ""
+    }
+</script>
+
+<body>
+    <navbar class="navbar">
+        <h1> TODO App</h1>
+    </navbar>
+    <div class="container">
+        <form id="add_task_form">
+            <input id="task_input" class="form_input" type="text" placeholder="Add new task" />
+            <input type="submit" value="Add" onclick="addTask(event)" />
+        </form>
+        <ol id="taskList">
+            <div class="listItem">
+                <input type="checkbox" />
+                <li> Task 1</li>
+                <button onclick="deleteTask(event)"> Delete</button>
+            </div>
+        </ol>
+    </div>
+</body>
+
+</html>

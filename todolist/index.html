@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- link Css -->
+    <link rel="stylesheet" href="/todolist/styles/todolist.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <title>Todo List+</title>
+</head>
+<body>
+    <h1>Todo List+</h1>
+    <div id="message"></div>
+    <form id="todo-form">
+      <input type="text" placeholder="Enter a new Todo item" id="todo-input">
+      <button type="submit">Add</button>
+    </form>
+    <div id="filters">
+      <button id="show-all">Show All</button>
+      <button id="show-active">Show Active</button>
+      <button id="show-completed">Show Completed</button>
+    </div>
+    <ul id="todo-list">
+      <li>
+        <input type="checkbox">
+        Take out the trash
+        <button>&times;</button>
+      </li>
+      <li>
+        <input type="checkbox">
+        Do the dishes
+        <button>&times;</button>
+      </li>
+      <li>
+        <input type="checkbox">
+        Buy groceries
+        <button>&times;</button>
+      </li>
+    </ul>
+<!-- Link js -->
+<script src="/todolist/scripts/main.js"></script>
